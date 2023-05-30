@@ -1,25 +1,27 @@
+// index.html Smash Games - Home
+// blast.html Smash Games - Inferno Blast
+
 const data = {
-    cards: [
-        { 
-            imgPath: "./somewhere.img",
-            imgAltText: "some alternate text",
-            title: "The Title",
-            body: "Some kind of body of text",
-            actionLink: "https://localhost:5500/games/game.html"
+    brandName: "Smash Games",
+    pages: [
+        {
+            name: "index",
+            pageName: "Home",
+            callToAction: {
+                src: "images/SmashGamesLogo-short.png",
+                altText: "Smash Games Logo"
+            }
         },
-        { 
-            imgPath: "./somewhere.img",
-            imgAltText: "some alternate text",
-            title: "The Title",
-            body: "Some kind of body of text",
-            actionLink: "https://localhost:5500/games/game.html"
-        },
-        { 
-            imgPath: "./somewhere.img",
-            imgAltText: "some alternate text",
-            title: "The Title",
-            body: "Some kind of body of text",
-            actionLink: "https://localhost:5500/games/game.html"
+        {
+            name: "blast",
+            pageName: "Inferno Blast",
+            callToAction: {
+                src: "images/Inferno-Jumbotron.png",
+                altText: "Inferno Blast Gameplay",
+                buttonLinkSrc: "https://steampowered.com",
+                buttonLinkText: "Buy now on Steam"
+            },
         }
     ]
+    
 }
