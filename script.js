@@ -56,7 +56,9 @@ const data={
         }
 
     ]
+
 }
+
 
 console.log(data.brandname + " - "+data.pages[1].blocks[2].cards[1].body)
 
@@ -67,3 +69,14 @@ var block= {
     buttonlinksrc: "https://steampowered.com",
     buttonlinktext: "buy now on steam!"
 }
+
+//handle to manipulate title
+let page=data.pages[1];
+document.title=data.brandname + " - " +page.pagename; // .data.pages[1] variable substitution;
+// get access to the branding and change to data.brandname
+document.getElementById("brand").innerHTML=data.brandname.toUpperCase();
+
+
+// get access to the page title h1 and change it to our page.pagename
+document.getElementsById("title").innerHTML=page.pagename;
+document.getElementsById("brand").innerHTML=data.brandname;
