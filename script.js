@@ -80,3 +80,26 @@ document.getElementById("brand").innerHTML=data.brandname.toUpperCase();
 // get access to the page title h1 and change it to our page.pagename
 document.getElementsById("title").innerHTML=page.pagename;
 document.getElementsById("brand").innerHTML=data.brandname;
+
+// this is the code to create blocks
+
+/*  <div class="call-to-action">
+<img src="images/Inferno-Jumbotron.png" alt="Inferno Blast Gameplay" />
+<br />
+<a class="btn" href="https://steampowered.com" target="_blank">Buy Now on Steam! <i class="fa-brands fa-steam-symbol"></i></a>
+</div>  */
+
+
+// get the main container
+let container=document.getElementById("main")
+
+// create our block
+
+let block=document.createElement("div");
+
+block.classList.add("call-to-action")
+
+block.innerHTML="This is a test"
+
+// add our block to main
+container.appendChild(block)
