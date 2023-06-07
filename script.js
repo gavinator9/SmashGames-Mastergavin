@@ -1,105 +1,164 @@
 // index.html Smash Games - Home
 // blast.html Smash Games - Inferno Blast
-const data={
-    brandname: "Smash Games",
+
+const data = {
+    brandName: "Smash Games",
     pages: [
         {
             name: "index",
-            pagename: "Home",
-            calltoaction: {
+            pageName: "Home",
+            callToAction: {
                 src: "images/SmashGamesLogo-short.png",
-                alttext: "smash games logo"
+                altText: "Smash Games Logo"
             }
         },
         {
-            name:"blast",
-            pagename:"Inferno Blast",
+            name: "blast",
+            pageName: "Inferno Blast",
             blocks: [
-                {  
+                {
                     type: "call-to-action",
                     src: "images/Inferno-Jumbotron.png",
-                    alttext: "Inferno Blast Gameplay",
-                    buttonlinksrc: "https://steampowered.com",
-                    buttonlinktext: "buy now on steam!"
+                    altText: "Inferno Blast Gameplay",
+                    buttonLinkSrc: "https://steampowered.com",
+                    buttonLinkText: "Buy now on Steam"
                 },
                 {
                     type: "description",
-                    text: "Inferno Blast is an action-packed adventure game that takes players to a fiery realm of danger and excitement. In this game, you'll take on the role of a hero who must navigate through a series of treacherous levels filled with fiery obstacles and hordes of demons. With each level you complete, you'll unlock new weapons and power-ups to help you in your quest to defeat the ultimate demon boss. Can you survive the inferno and emerge victorious?"
+                    text: "Inferno Blast is an action-packed adventure game that takes players to a fiery realm of danger and excitement. In this game, you'll take on the role of a hero who must navigate through a series of treacherous levels filled with fiery obstacles and hordes of demons. With each level you complete, you'll unlock new weapons and power-ups to help you in your quest to defeat the ultimate demon boss. Can you survive the inferno and emerge victorious?",
                 },
                 {
                     type: "deck",
                     cards: [
                         {
                             type: "card",
-                            // card properties go down here
                             src: "images/Inferno/Inferno-2-short.png",
-                            alttext: "Inferno Blast gameplay",
+                            altText: "Inferno Blast Gameplay",
                             title: "Dynamic Environments",
-                            body: "Navigate through a variety of fiery landscapes, including fiery pits, hellish hell zones of hell, and demon infested scroogle zones.",
-                            
+                            body: "Navigate through a variety of fiery landscapes, including lava pits, crumbling ruins, and demonic strongholds.",
                         },
                         {
                             type: "card",
-                            // card properties go down here
                             src: "images/Inferno/Inferno-1-short.png",
-                            alttext: "Inferno Blast gameplay",
-                            title: "Upgradeable Weapons",
-                            body: "Customize your arsenal with a whaggamuffin of tons of different floogle tuned weaponry designed to inflict maximum collateral damage on innocents.",
-                            
-                        }
-
-
+                            altText: "Inferno Blast Gameplay",
+                            title: "Upgradable Weapons",
+                            body: "Customize your arsenal with a range of weapons and power-ups, including flamethrowers, rocket launchers, and more.",
+                        },
+                        {
+                            type: "card",
+                            src: "images/Inferno/Inferno-3-short.png",
+                            altText: "Inferno Blast Gameplay",
+                            title: "Epic Boss Battles",
+                            body: "Face off against towering demon bosses, each with their own unique strengths and weaknesses.",
+                        },
                     ],
+                },
+                {
+                    type: "requirements",
+                    platforms: [
+                        "steam",
+                        "playstation",
+                        "xbox",
+                        "facebook",
+                        "twitter",
+                        "instagram",
+                        "patreon",
+                        "twitch",
+                        "youtube",
+                    ],
+                    requirements: [
+                        {
+                            type: "minimum-requirements",
+                            title: "Minimum Requirements",
+                            requirements: [
+                                { title: "OS", value: "Win7" },
+                                { title: "Processor", value: "Intel I3 or Ryzen 3" },
+                                { title: "RAM", value: "8gb" },
+                                { title: "Graphics", value: "Geforce GTX 570" },
+                                { title: "Storage", value: "1gb HDD" },
+                            ]
+                        },
+                        {
+                            type: "recommended-requirements",
+                            title: "Recommended Requirements",
+                            requirements: [
+                                { title: "OS", value: "Win11" },
+                                { title: "Processor", value: "Intel I9 or Ryzen 7" },
+                                { title: "RAM", value: "16gb" },
+                                { title: "Graphics", value: "Geforce RTX 2080" },
+                                { title: "Storage", value: "5gb SSD" },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    type: "wishlist"
+                },
+                {
+                    type: "faq",
+                    questions: [
+                        { question: "What does this do?", answer: "stuff" },
+                        { question: "What does that do?", answer: "that stuff" },
+                        { question: "What does any of this do?", answer: "stuff i think" },
+                    ]
                 }
             ],
-
         }
-
     ]
-
 }
 
+let page = data.pages[1];
 
-console.log(data.brandname + " - "+data.pages[1].blocks[2].cards[1].body)
+document.title = data.brandName + " - " + page.pageName;
+// get access to the branding and change to data.brandName
+document.getElementById("brand").innerHTML = data.brandName.toUpperCase();
 
-var block= {
-    type: "call to action",
-    src: "images/Inferno-Jumbotron.png",
-    alttext: "Inferno Blast Gameplay",
-    buttonlinksrc: "https://steampowered.com",
-    buttonlinktext: "buy now on steam!"
+// get access to the page title h1 and change it to page.pageName
+document.getElementById("pageName").innerHTML = page.pageName;
+
+// This is the code to create blocks
+
+/* <div class="call-to-action">
+    <img src="images/Inferno-Jumbotron.png" alt="Inferno Blast Gameplay" />
+    <br />
+    <a class="btn" href="https://steampowered.com" target="_blank">Buy Now on Steam! <i class="fa-brands fa-steam-symbol"></i></a>
+</div> */
+
+createCallToAction(page.blocks[0]);
+
+function createImage(imgData) {
+    let img = document.createElement("img");
+    img.src = imgData.src;
+    img.alt = imgData.alt;
+
+    return img;
 }
 
-//handle to manipulate title
-let page=data.pages[1];
-document.title=data.brandname + " - " +page.pagename; // .data.pages[1] variable substitution;
-// get access to the branding and change to data.brandname
-document.getElementById("brand").innerHTML=data.brandname.toUpperCase();
+function createButtonLink(linkData) {
+    let link = document.createElement("a");
+    link.classList.add("btn");
+    link.href = linkData.buttonLinkSrc;
+    link.target = "_blank";
+    link.innerHTML = linkData.buttonLinkText + ' <i class="fa-brands fa-steam-symbol"></i>';
+    return link;
+}
+
+function createCallToAction(blockData) {
+    // get the main container
+    let container = document.getElementById("main");
+
+    // create our block
+    let block = document.createElement("div");
+    block.classList.add("call-to-action");
+    
+    // add our image
+    block.appendChild(createImage(blockData));
+    block.appendChild(createButtonLink(blockData));
+    // add our break
+    block.appendChild(document.createElement("br"));
+    // add our call to action button
 
 
-// get access to the page title h1 and change it to our page.pagename
-document.getElementsById("title").innerHTML=page.pagename;
-document.getElementsById("brand").innerHTML=data.brandname;
-
-// this is the code to create blocks
-
-/*  <div class="call-to-action">
-<img src="images/Inferno-Jumbotron.png" alt="Inferno Blast Gameplay" />
-<br />
-<a class="btn" href="https://steampowered.com" target="_blank">Buy Now on Steam! <i class="fa-brands fa-steam-symbol"></i></a>
-</div>  */
-
-
-// get the main container
-let container=document.getElementById("main")
-
-// create our block
-
-let block=document.createElement("div");
-
-block.classList.add("call-to-action")
-
-block.innerHTML="This is a test"
-
-// add our block to main
-container.appendChild(block)
+    // add our block to main
+    container.appendChild(block);
+}
