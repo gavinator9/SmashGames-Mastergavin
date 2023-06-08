@@ -238,7 +238,7 @@ function createDeck(blockData) {
 
             body.appendChild(title);
             body.appendChild(text);
-            block.appendChild(card);
+            deck.appendChild(card);
     }
 
     container.appendChild(block);
