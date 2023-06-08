@@ -146,7 +146,7 @@ else if (currentBlock.type=="deck"){
     createDeck(currentBlock);
 }
 else if (currentBlock.type=="reqs"){
-    
+
 }
 else {
     console.log("no block template found");
@@ -220,7 +220,25 @@ function createDeck(blockData) {
     block.appendChild(deck);
 
     for (let i = 0; i<blockData.cards.length; i++) {
+        let card=document.createElement("div");
+        card.classList.add("card");
+        card.appendChild(createImage({
+            src: blockData.cards[i].src,
+             alt: blockData.cards[i].altText 
+            }));
 
+            let body=document.createElement("div")
+            body.classList.add("card-body");
+            card.appendChild(body);
+
+            let title=document.createElement("h3");
+            title.innerHTML=blockData.cards[i].title;
+            let text=document.createElement("p");
+            text.innerHTML=blockData.cards[i].body;
+
+            body.appendChild(title);
+            body.appendChild(text);
+            block.appendChild(card);
     }
 
     container.appendChild(block);
